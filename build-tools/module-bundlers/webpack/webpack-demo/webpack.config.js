@@ -4,8 +4,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './src/index.js',
-        print: './src/print.js',
+        index: { import: './src/index.js', dependOn: 'shared' },
+        another: { import: './src/another-module.js', dependOn: 'shared' },
+        shared: 'lodash',
     },
     plugins: [
         new CleanWebpackPlugin(),
